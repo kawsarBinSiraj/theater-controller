@@ -10,18 +10,11 @@
  */
 
 $(function () {
-    let buttons = [
-        {
-            id: Math.random().toString(16).slice(2),
-            btnName: "After add new button will inject here",
-            btnTxt: "After add new button will inject here",
-        },
-    ];
+    let buttons = [ ];
     function insertButtonsIntoHtml() {
         const storageButtons = localStorage.getItem("storageButtons");
         const storedButtons = JSON.parse(storageButtons);
         if (Array.isArray(storedButtons) && storedButtons.length > 0) {
-            console.log(storageButtons);
             // Parse the string back to an array using JSON.parse
             //insertion into html
             let markup = "";
