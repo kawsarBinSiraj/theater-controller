@@ -10,16 +10,20 @@
         <div id="theater-controller" class="my-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-11 m-auto">
-                        <div class="form-group d-flex align-items-center gap-4 mb-4">
+                    <div class="col-10 m-auto">
+                        <div class="form-group d-flex flex-wrap align-items-center gap-4 mb-4">
                             <button data-bs-toggle="modal" data-bs-target="#modal" type="button" class="btn btn-primary text-light rounded px-2 bg-gradient">Add New Buttons</button>
                             <div class="group">
                                 <label for="volume" class="form-label mb-0">Volume - <strong id="out">(1)</strong> </label>
                                 <input type="range" class="form-range" id="volume" min="0" max="1" step="0.1" value="1" />
                             </div>
+                            <div class="group">
+                                <label for="volume" class="form-label mb-0">Reading Speed - <strong id="speed-out">(1)</strong> </label>
+                                <input type="range" class="form-range" id="readingSpeed" min="0.1" max="5" value="1" step="0.1" />
+                            </div>
                         </div>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-md-4 mb-4 mb-md-0">
                                 <h5 class="mb-2">Actions</h5>
                                 <div class="action-buttons p-3 rounded border d-flex flex-column flex-wrap gap-2 bg-warning bg-opacity-10 border-wrning">
                                     <button type="button" data-btn-text="Stop" class="btn btn-info rounded px-2 text-light bg-gradient">Stop</button>
@@ -29,10 +33,10 @@
                                     <button type="button" data-btn-text="Turn Right" class="btn btn-info rounded px-2 text-light bg-gradient">Turn Right</button>
                                 </div>
                             </div>
-                            <div class="col-8">
+                            <div class="col-md-8">
                                 <h5 class="mb-2">Movements</h5>
                                 <div id="buttons" class="action-buttons p-3 rounded border d-flex flex-wrap gap-2 bg-warning bg-opacity-10 border-wrning">
-                                    <button type="button" data-btn-text="After add new button will inject here" class="btn btn-success rounded px-2 text-light bg-gradient">After add new button will inject here</button>
+                                    
                                 </div>
                             </div>
                         </div>
