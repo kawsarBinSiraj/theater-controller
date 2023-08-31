@@ -11,20 +11,30 @@
 
 $(function () {
     $("#btn-save").on("click", function () {
+        let btnName = $("#btn-name").val();
         let btnTxt = $("#text").val();
-        if (btnTxt === "") return alert("Input value is required to save !");
-        let btnMarkup = `<button type="button" data-btn-text="${btnTxt}" class="btn btn-info rounded px-2 text-light bg-gradient">${btnTxt}</button>`;
+        if (btnName === "" || btnTxt === "") return alert("Both input is required to save !");
+        let btnMarkup = `<button type="button" data-btn-text="${btnTxt}" class="btn btn-success rounded px-2 text-light bg-gradient">${btnName}</button>`;
         $("#buttons").append(btnMarkup);
         $("#modal").modal("hide");
     });
 
-    $(document).on("click", "#buttons > .btn", function () {
-        let speech = new SpeechSynthesisUtterance();
-        speech.volume = parseFloat($("#volume").val());
-        speech.text = $(this).data("btn-text");
-        window.speechSynthesis.speak(speech);
+    // Initialize SpeechSynthesisUtterance
+    const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance();
+    let IntervalId = null;
+
+    // click on button
+    $(document).on("click", ".action-buttons > .btn", function () {
+        utterance.text = $(this).data("btn-text");
+        synth.speak(utterance);
     });
-    $("#volume").change(function(){
-        $('#out').text(`(${$(this).val()})`);
-    })
+
+    // volume control
+    $("#volume").change(function () {
+        $("#out").text(`(${$(this).val()})`);
+        const volume = parseFloat($(this).val());
+        utterance.volume = volume;
+    });
+    
 });
